@@ -1,0 +1,10 @@
+<beanio xmlns="http://www.beanio.org/2012/03">
+  <stream name="randNumFlrFile" format="fixedlength">
+    <group name="randNumHolder" class="map">
+      <record name="entries" class="map" collection="list" minOccurs="0" maxOccurs="unbounded">
+        <field name="accountNum" required="true" length="20" padding=" " justify="left"/>
+        <field name="randNum" required="true" type="double" length="3" padding=" " justify="left"/>
+      </record>
+    </group>
+  </stream>
+</beanio>
