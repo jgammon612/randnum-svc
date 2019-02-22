@@ -76,7 +76,7 @@ public class CamelConfiguration extends RouteBuilder {
     from("direct:flrDataUpload")
       .onException(Exception.class)
         .handled(true)
-        .log(LoggingLevel.DEBUG, log, "Error inserting record for accountNum=[${body['accountNum']}], error=[${exception}]")
+        .log(LoggingLevel.DEBUG, log, "Error inserting record for accountNum=[${body?.get('accountNum')}], error=[${exception}]")
         .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(500))
         .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))
         .setBody(simple("Not OK\n${exception}"))
