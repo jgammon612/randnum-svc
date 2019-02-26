@@ -24,7 +24,7 @@ spring:
 # Camel Spring Boot
 camel:
   springboot:
-    name: NpaSvc
+    name: RandNumSvc
 
 # Logging
 logging:
