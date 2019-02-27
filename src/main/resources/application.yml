@@ -12,19 +12,20 @@ endpoints:
 # Spring Boot
 spring:
   datasource:
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3307/example?autoReconnect=true&useSSL=false
     username: root
     password: Abcd1234
     schema: classpath:sql/schema.sql
-    schemaUsername: ${spring.datasource.username}
-    schemaPassword: ${spring.datasource.password}
+    schema-username: ${spring.datasource.username}
+    schema-password: ${spring.datasource.password}
     initialization-mode: ALWAYS
     continue-on-error: true
 
 # Camel Spring Boot
 camel:
   springboot:
-    name: RandNumSvc
+    name: randnum-svc
 
 # Logging
 logging:
@@ -32,3 +33,4 @@ logging:
   level:
     #org.apache.camel: DEBUG
     org.apache.camel.examples: DEBUG
+    org.apache.camel.component.jackson: WARN

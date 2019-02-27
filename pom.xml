@@ -93,6 +93,10 @@
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
     </dependency>
@@ -124,9 +128,6 @@
             <groupId>io.fabric8</groupId>
             <artifactId>fabric8-maven-plugin</artifactId>
             <version>${fabric8-maven-plugin.version}</version>
-            <configuration>
-              <generateRoute>false</generateRoute>
-            </configuration>
             <executions>
               <execution>
                 <id>fabric8</id>

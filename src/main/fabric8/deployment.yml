@@ -26,9 +26,6 @@ spec:
         - name: ${project.artifactId}-configmap-vol
           mountPath: /etc/config
           readOnly: true
-        - name: ${project.artifactId}-secret-vol
-          mountPath: /etc/secret
-          readOnly: true
       volumes:
       - name: ${project.artifactId}-configmap-vol
         configMap:

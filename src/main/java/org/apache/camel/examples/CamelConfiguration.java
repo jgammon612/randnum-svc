@@ -68,6 +68,11 @@ public class CamelConfiguration extends RouteBuilder {
     from("direct:fetchRandNumByAccountNum")
       .log(LoggingLevel.DEBUG, log, "Fetching randNum for accountNum: [${header.accountNum}]")
       .to("sql:SELECT RAND_NUM FROM CDP_RAND_NUM WHERE ACCOUNT_NUM=:#${header.accountNum}?outputType=SelectOne")
+      .filter(simple("${header.CamelSqlRowCount} <= 0"))
+        .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(404))
+        .setBody(constant(null))
+        .stop()
+      .end()
       .transform().groovy("['randNum': request.body]")
       .marshal().json(JsonLibrary.Jackson)
     ;
